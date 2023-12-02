@@ -1,0 +1,42 @@
+spring:
+  profiles:
+    active: prod1
+    group:
+      local: common, secret # secret ??
+      prod1: common, prod1-server, secret
+      prod2: common, prod2-server, secret
+
+server:
+  env: blue
+
+--- # ??? yml ?? ?? ??
+# ???? ?? ?? (common)
+spring:
+  config:
+    activate:
+      on-profile: common
+
+serverName: common
+---
+# ??1 ??(prod1)
+spring:
+  config:
+    activate:
+      on-profile: prod1-server
+
+server:
+  port: 8080
+
+serverName: prod1
+
+---
+# ?? 2 ?? prod2
+spring:
+  config:
+    activate:
+      on-profile: prod2-server
+
+server:
+  port: 8081
+
+serverName: prod2

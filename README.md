@@ -1,2 +1,1 @@
-# github_action_study
-github_action_study
+# AWS_Docker_study
